@@ -1,0 +1,5 @@
+CC(C)C[C@@H](C(=O)O)N
+
+CC[C@H](C)[C@@H](C(=O)O)N
+
+CC(C)[C@@H](C(=O)O)N
