@@ -1,0 +1,46 @@
+BootStrap: docker
+From: ubuntu:22.04
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+
+    apt-get update && apt-get install -y \
+        wget \
+        git \
+        openbabel \
+        python3-pip \
+        python3-dev \
+        libxrender1 \
+        libxext6 \
+        libsm6 \
+        libgl1 \
+        libxrender-dev
+
+    # Upgrade pip
+    pip3 install --no-cache-dir --upgrade pip
+
+    # Install the full stack including Gemmi and Pandas
+    pip3 install --no-cache-dir \
+        numpy \
+        scipy \
+        pandas \
+        gemmi \
+        meeko \
+        rdkit \
+        prody
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/bin:$PATH
+
+%test
+    # The ultimate sanity check
+    obabel -V
+    python3 -c "import meeko, scipy, rdkit, gemmi; print('Environment is rock solid!')"
+
+%help
+    Comprehensive Cheminformatics Image for HPC:
+    - OpenBabel 3.1.1
+    - Meeko (with Gemmi & SciPy support)
+    - RDKit
+    - Pandas & Numpy

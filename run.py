@@ -1,6 +1,9 @@
 import init
 import sys
+import os
 from chemistry import compute_similarity as cs
+from boltzgen import run_boltzgen as rb
+
 
 def main():
     if len(sys.argv) < 3:
@@ -15,6 +18,8 @@ def main():
     codes = cs.build_library(names)
     scores = cs.compute_scores(codes, ligand_smiles)
     scaffold = cs.find_scaffold(names,scores)
+    rb.write_yaml(scaffold, ligand_smiles, project_name)
+    rb.activate_boltzgen(project_name)
 
 
 if __name__=="__main__":

@@ -1,0 +1,51 @@
+
+The following have been reloaded with a version change:
+  1) python/3.11.5 => python/3.14.2
+
+Lmod Warning:
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: scipy-stack/2025a
+(required by: autodock-vina/1.2.6)
+-------------------------------------------------------------------------------
+
+
+
+
+The following have been reloaded with a version change:
+  1) ipykernel/2025a => ipykernel/2026a
+  2) scipy-stack/2025a => scipy-stack/2026a
+
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+[23:06:02] DEPRECATION WARNING: please use MorganGenerator
+Welcome to PBP Designer! A pipeline for building new protein-based FRET biosensors.
+This pipeline is designed to be user-friendly and accessible to researchers of all levels of experience. All that is required from you is a SMILES code for you ligand of interest, and a name for your project.
+Smiles codes can be found from PubChem at: https://pubchem.ncbi.nlm.nih.gov/
+For more information on how to use the PBP Designer pipeline, please refer to our GitHub repository at: https://github.com/ExpertMirror/pbp-designer
+
+Beginning project 'proline1'.
+Checking SMILES code 'C1C[C@H](NC1)C(=O)O'...Success
+Scaffold protein assigned: livj
+Ligand similarity = 13.333333333333334 %
+Traceback (most recent call last):
+  File "/home/loganp29/project/pbp-designer/run.py", line 26, in <module>
+    main()
+    ~~~~^^
+  File "/home/loganp29/project/pbp-designer/run.py", line 22, in main
+    rb.activate_boltzgen(project_name)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/loganp29/project/pbp-designer/boltzgen/run_boltzgen.py", line 21, in activate_boltzgen
+    os.mkdir(f'{name}')
+    ~~~~~~~~^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: 'proline1'

@@ -1,0 +1,105 @@
+
+The following have been reloaded with a version change:
+  1) python/3.11.5 => python/3.14.2
+
+Lmod Warning:
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: scipy-stack/2025a
+(required by: autodock-vina/1.2.6)
+-------------------------------------------------------------------------------
+
+
+
+
+The following have been reloaded with a version change:
+  1) ipykernel/2025a => ipykernel/2026a
+  2) scipy-stack/2025a => scipy-stack/2026a
+
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+[23:10:02] DEPRECATION WARNING: please use MorganGenerator
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.2.2
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+usage: boltzgen run [-h]
+                    [--protocol {protein-anything,peptide-anything,protein-small_molecule,nanobody-anything,antibody-anything,protein-redesign}]
+                    [--output OUTPUT] [--config CONFIG [CONFIG ...]]
+                    [--devices DEVICES] [--num_workers NUM_WORKERS]
+                    [--config_dir CONFIG_DIR]
+                    [--use_kernels {auto,true,false}] [--moldir MOLDIR]
+                    [--reuse] [--num_designs NUM_DESIGNS]
+                    [--diffusion_batch_size DIFFUSION_BATCH_SIZE]
+                    [--design_checkpoints DESIGN_CHECKPOINTS [DESIGN_CHECKPOINTS ...]]
+                    [--step_scale STEP_SCALE] [--noise_scale NOISE_SCALE]
+                    [--skip_inverse_folding]
+                    [--inverse_fold_num_sequences INVERSE_FOLD_NUM_SEQUENCES]
+                    [--inverse_fold_checkpoint INVERSE_FOLD_CHECKPOINT]
+                    [--inverse_fold_avoid INVERSE_FOLD_AVOID]
+                    [--only_inverse_fold]
+                    [--folding_checkpoint FOLDING_CHECKPOINT]
+                    [--affinity_checkpoint AFFINITY_CHECKPOINT]
+                    [--budget BUDGET] [--alpha ALPHA]
+                    [--filter_biased {true,false}]
+                    [--metrics_override METRICS_OVERRIDE [METRICS_OVERRIDE ...]]
+                    [--additional_filters ADDITIONAL_FILTERS [ADDITIONAL_FILTERS ...]]
+                    [--size_buckets SIZE_BUCKETS [SIZE_BUCKETS ...]]
+                    [--refolding_rmsd_threshold REFOLDING_RMSD_THRESHOLD]
+                    [--no_subprocess]
+                    [--steps {design,inverse_folding,design_folding,folding,affinity,analysis,filtering} [{design,inverse_folding,design_folding,folding,affinity,analysis,filtering} ...]]
+                    [--force_download] [--models_token MODELS_TOKEN]
+                    [--cache CACHE]
+                    design_spec [design_spec ...]
+boltzgen run: error: argument --num_designs: invalid int value: '50--budget'
+Welcome to PBP Designer! A pipeline for building new protein-based FRET biosensors.
+This pipeline is designed to be user-friendly and accessible to researchers of all levels of experience. All that is required from you is a SMILES code for you ligand of interest, and a name for your project.
+Smiles codes can be found from PubChem at: https://pubchem.ncbi.nlm.nih.gov/
+For more information on how to use the PBP Designer pipeline, please refer to our GitHub repository at: https://github.com/ExpertMirror/pbp-designer
+
+Beginning project 'proline1'.
+Checking SMILES code 'C1C[C@H](NC1)C(=O)O'...Success
+Scaffold protein assigned: livj
+Ligand similarity = 13.333333333333334 %
+Traceback (most recent call last):
+  File "/home/loganp29/project/pbp-designer/run.py", line 26, in <module>
+    main()
+    ~~~~^^
+  File "/home/loganp29/project/pbp-designer/run.py", line 22, in main
+    rb.activate_boltzgen(project_name)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/loganp29/project/pbp-designer/boltzgen/run_boltzgen.py", line 26, in activate_boltzgen
+    sp.run([
+    ~~~~~~^^
+        "apptainer", "run", "--nv",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        "--budget", "30"
+        ^^^^^^^^^^^^^^^^
+    ], check=True)
+    ^^^^^^^^^^^^^^
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/python/3.14.2/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['apptainer', 'run', '--nv', '--bind', '/scratch/loganp29:/scratch/loganp29', '-B', '../outs/boltzgen:/workdir', '-B', '/home/loganp29/project/pbp-designer/boltzgen:/example', 'boltzgen.sif', 'boltzgen', 'run', './proline1.yaml', '--ouput', '../outs/boltzgen/proline1', '--protocol', 'protein-small_molecule', '--num_designs', '50--budget', '30']' returned non-zero exit status 2.

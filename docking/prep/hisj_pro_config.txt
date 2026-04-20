@@ -1,0 +1,14 @@
+receptor = /prep/hisj_pro_prepared.pdbqt
+ligand = /prep/proline_prepared.pdbqt
+
+center_x = 0.586
+center_y = -3.621
+center_z = -2.246
+
+size_x = 66.547
+size_y = 56.087
+size_z = 58.164
+
+exhaustiveness = 8
+num_modes = 10
+energy_range = 3
