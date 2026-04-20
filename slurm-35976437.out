@@ -1,612 +1,0 @@
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-[09:20:14] DEPRECATION WARNING: please use MorganGenerator
-
-==========
-== CUDA ==
-==========
-
-CUDA Version 12.2.2
-
-Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-
-This container image and its contents are governed by the NVIDIA Deep Learning Container License.
-By pulling and using the container, you accept the terms and conditions of this license:
-https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
-
-A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
-
-
-=== Configuring pipeline ===
-Using dataset artifact: /scratch/loganp29/huggingface/hub/datasets--boltzgen--inference-data/snapshots/c3d36fd276e9caf098c75d4113c6d5eb320b1a4c/mols.zip
-************** Checking design spec: proline1.yaml **************
-Total designed residues: 19
-Design specification visualization is written to /workdir/proline1/proline1.cif
-*****************************************************************
-Using kernels: True [device capability: (9, 0)]
-Config overrides for protocol protein-small_molecule: {'analysis': ['affinity_metrics=true'], 'filtering': ['use_affinity=true']}
-Using 1 devices
-Raw designs will be saved to: /workdir/proline1/intermediate_designs
-Using diffusion batch size: 1
-Number of diffusion batches: 50
-Using model artifact: /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltzgen1_diverse.ckpt
-Using model artifact: /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltzgen1_adherence.ckpt
-Inverse-folded designs will be saved to: /workdir/proline1/intermediate_designs_inverse_folded
-Using model artifact: /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltzgen1_ifold.ckpt
-Using model artifact: /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltz2_conf_final.ckpt
-Using model artifact: /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltz2_conf_final.ckpt
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Using model artifact: /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltz2_aff.ckpt
-Final ranked designs will be saved to: /workdir/proline1/final_ranked_designs
-[1] design                   
-[2] inverse_folding          
-[3] folding                  
-[4] design_folding           
-[5] affinity                 
-[6] analysis                 
-[7] filtering                
-Configuration complete. Configs written to /workdir/proline1/config
-Steps manifest written to /workdir/proline1/steps.yaml
-
-=== Executing pipeline ===
-**************************************************
-Pipeline step 1 of 7: design
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/design.yaml
-/usr/local/lib/python3.11/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: |          | 0/? [00:00<?, ?it/s][Step 1/7] design - Predicting: |          | 0/? [00:00<?, ?it/s][Step 1/7] design - Predicting: |          | 0/? [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/50 [00:00<?, ?it/s]  [Step 1/7] design - Predicting DataLoader 0: :   0%|          | 0/50 [00:00<?, ?it/s]/usr/local/lib/python3.11/dist-packages/cuequivariance_ops_torch/triangle_attention.py:165: UserWarning: Non-SM100f kernel expects bias to be float32 so it's going to be cast to torch.float32. Check if you can change your code for maximum performance.
-  warnings.warn(
-/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_00.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :   2%|▏         | 1/50 [00:21<17:19,  0.05it/s]/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
-  return data.pin_memory(device)
-/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
-  return data.pin_memory(device)
-/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_01.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :   4%|▍         | 2/50 [00:33<13:13,  0.06it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_02.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :   6%|▌         | 3/50 [00:44<11:43,  0.07it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_03.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :   8%|▊         | 4/50 [00:56<10:53,  0.07it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_04.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  10%|█         | 5/50 [01:09<10:21,  0.07it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_05.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  12%|█▏        | 6/50 [01:20<09:53,  0.07it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_06.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  14%|█▍        | 7/50 [01:32<09:30,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_07.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  16%|█▌        | 8/50 [01:44<09:10,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_08.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  18%|█▊        | 9/50 [01:56<08:51,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_09.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  20%|██        | 10/50 [02:08<08:34,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_10.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  22%|██▏       | 11/50 [02:20<08:18,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_11.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  24%|██▍       | 12/50 [02:32<08:03,  0.08it/s]Switched step_scale to 2.0
-Switched noise_scale to 0.88
-/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_12.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  26%|██▌       | 13/50 [02:44<07:47,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_13.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  28%|██▊       | 14/50 [02:56<07:33,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_14.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  30%|███       | 15/50 [03:08<07:18,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_15.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  32%|███▏      | 16/50 [03:19<07:04,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_16.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  34%|███▍      | 17/50 [03:31<06:50,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_17.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  36%|███▌      | 18/50 [03:43<06:38,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_18.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  38%|███▊      | 19/50 [03:55<06:24,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_19.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  40%|████      | 20/50 [04:07<06:11,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_20.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  42%|████▏     | 21/50 [04:19<05:58,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_21.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  44%|████▍     | 22/50 [04:31<05:45,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_22.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  46%|████▌     | 23/50 [04:43<05:32,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_23.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  48%|████▊     | 24/50 [04:54<05:19,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_24.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  50%|█████     | 25/50 [05:07<05:07,  0.08it/s]Loaded weights from /scratch/loganp29/huggingface/hub/models--boltzgen--boltzgen-1/snapshots/c1be29e1f82ffcc72264f64b993c43fb4e0d17f0/boltzgen1_adherence.ckpt
-Switched checkpoint.
-/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_25.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  52%|█████▏    | 26/50 [05:20<04:56,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_26.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  54%|█████▍    | 27/50 [05:32<04:43,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_27.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  56%|█████▌    | 28/50 [05:44<04:30,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_28.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  58%|█████▊    | 29/50 [05:56<04:18,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_29.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  60%|██████    | 30/50 [06:08<04:05,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_30.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  62%|██████▏   | 31/50 [06:20<03:53,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_31.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  64%|██████▍   | 32/50 [06:32<03:40,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_32.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  66%|██████▌   | 33/50 [06:43<03:28,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_33.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  68%|██████▊   | 34/50 [06:55<03:15,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_34.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  70%|███████   | 35/50 [07:07<03:03,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_35.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  72%|███████▏  | 36/50 [07:19<02:50,  0.08it/s]Switched step_scale to 1.8
-Switched noise_scale to 0.95
-/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_36.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  74%|███████▍  | 37/50 [07:31<02:38,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_37.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  76%|███████▌  | 38/50 [07:43<02:26,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_38.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  78%|███████▊  | 39/50 [07:55<02:14,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_39.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  80%|████████  | 40/50 [08:07<02:01,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_40.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  82%|████████▏ | 41/50 [08:18<01:49,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_41.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  84%|████████▍ | 42/50 [08:30<01:37,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_42.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  86%|████████▌ | 43/50 [08:42<01:25,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_43.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  88%|████████▊ | 44/50 [08:54<01:12,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_44.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  90%|█████████ | 45/50 [09:06<01:00,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_45.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  92%|█████████▏| 46/50 [09:18<00:48,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_46.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  94%|█████████▍| 47/50 [09:30<00:36,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_47.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  96%|█████████▌| 48/50 [09:42<00:24,  0.08it/s]Switched step_scale to 2.0
-Switched noise_scale to 0.88
-/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_48.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: :  98%|█████████▊| 49/50 [09:53<00:12,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:377: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs/proline1_49.cif' mode='w' encoding='UTF-8'>
-  open(gen_path, "w").write(
-[Step 1/7] design - Predicting DataLoader 0: : 100%|██████████| 50/50 [10:05<00:00,  0.08it/s]Number of failed examples: 0
-[Step 1/7] design - Predicting DataLoader 0: : 100%|██████████| 50/50 [10:05<00:00,  0.08it/s]
-✓ Step design completed successfully in 635.1s
-**************************************************
-Pipeline step 2 of 7: inverse_folding
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/inverse_folding.yaml
-Initializing FromGeneratedDataModule datasets for /workdir/proline1/intermediate_designs
-[Info] Number of files to process (including already processed ones): 50
-Found 1 targets and 50 remaining designs that still need to be processed in this step.
-/usr/local/lib/python3.11/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: |          | 0/? [00:00<?, ?it/s][Step 2/7] inverse_folding - Predicting: |          | 0/? [00:00<?, ?it/s][Step 2/7] inverse_folding - Predicting: |          | 0/? [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/50 [00:00<?, ?it/s]           [Step 2/7] inverse_folding - Predicting DataLoader 0: :   0%|          | 0/50 [00:00<?, ?it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :   2%|▏         | 1/50 [00:01<00:54,  0.89it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :   4%|▍         | 2/50 [00:01<00:34,  1.38it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :   6%|▌         | 3/50 [00:01<00:27,  1.68it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :   8%|▊         | 4/50 [00:02<00:24,  1.88it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  10%|█         | 5/50 [00:02<00:24,  1.85it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  12%|█▏        | 6/50 [00:03<00:22,  1.97it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  14%|█▍        | 7/50 [00:03<00:20,  2.06it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  16%|█▌        | 8/50 [00:03<00:19,  2.15it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  18%|█▊        | 9/50 [00:04<00:18,  2.21it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  20%|██        | 10/50 [00:04<00:17,  2.26it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  22%|██▏       | 11/50 [00:04<00:16,  2.31it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  24%|██▍       | 12/50 [00:05<00:16,  2.36it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  26%|██▌       | 13/50 [00:05<00:15,  2.32it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  28%|██▊       | 14/50 [00:05<00:15,  2.34it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  30%|███       | 15/50 [00:06<00:14,  2.38it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  32%|███▏      | 16/50 [00:06<00:14,  2.41it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  34%|███▍      | 17/50 [00:06<00:13,  2.43it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  36%|███▌      | 18/50 [00:07<00:13,  2.46it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  38%|███▊      | 19/50 [00:07<00:12,  2.48it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  40%|████      | 20/50 [00:08<00:12,  2.50it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  42%|████▏     | 21/50 [00:08<00:11,  2.45it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  44%|████▍     | 22/50 [00:08<00:11,  2.47it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  46%|████▌     | 23/50 [00:09<00:10,  2.49it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  48%|████▊     | 24/50 [00:09<00:10,  2.50it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  50%|█████     | 25/50 [00:09<00:09,  2.51it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  52%|█████▏    | 26/50 [00:10<00:09,  2.52it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  54%|█████▍    | 27/50 [00:10<00:09,  2.53it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  56%|█████▌    | 28/50 [00:10<00:08,  2.55it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  58%|█████▊    | 29/50 [00:11<00:08,  2.52it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  60%|██████    | 30/50 [00:11<00:07,  2.54it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  62%|██████▏   | 31/50 [00:12<00:07,  2.55it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  64%|██████▍   | 32/50 [00:12<00:07,  2.55it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  66%|██████▌   | 33/50 [00:12<00:06,  2.56it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  68%|██████▊   | 34/50 [00:13<00:06,  2.56it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  70%|███████   | 35/50 [00:13<00:05,  2.57it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  72%|███████▏  | 36/50 [00:13<00:05,  2.58it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  74%|███████▍  | 37/50 [00:14<00:05,  2.55it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  76%|███████▌  | 38/50 [00:14<00:04,  2.56it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  78%|███████▊  | 39/50 [00:15<00:04,  2.57it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  80%|████████  | 40/50 [00:15<00:03,  2.58it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  82%|████████▏ | 41/50 [00:15<00:03,  2.58it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  84%|████████▍ | 42/50 [00:16<00:03,  2.59it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  86%|████████▌ | 43/50 [00:16<00:02,  2.60it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  88%|████████▊ | 44/50 [00:16<00:02,  2.60it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  90%|█████████ | 45/50 [00:17<00:01,  2.58it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  92%|█████████▏| 46/50 [00:17<00:01,  2.59it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  94%|█████████▍| 47/50 [00:18<00:01,  2.59it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  96%|█████████▌| 48/50 [00:18<00:00,  2.60it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: :  98%|█████████▊| 49/50 [00:18<00:00,  2.62it/s][Step 2/7] inverse_folding - Predicting DataLoader 0: : 100%|██████████| 50/50 [00:19<00:00,  2.63it/s]Number of failed examples: 0
-[Step 2/7] inverse_folding - Predicting DataLoader 0: : 100%|██████████| 50/50 [00:19<00:00,  2.63it/s]
-✓ Step inverse_folding completed successfully in 25.6s
-**************************************************
-Pipeline step 3 of 7: folding
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/folding.yaml
-Initializing FromGeneratedDataModule datasets for /workdir/proline1/intermediate_designs_inverse_folded
-[Info] Number of files to process (including already processed ones): 50
-Found 1 targets and 50 remaining designs that still need to be processed in this step.
-/usr/local/lib/python3.11/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: |          | 0/? [00:00<?, ?it/s][Step 3/7] folding - Predicting: |          | 0/? [00:00<?, ?it/s][Step 3/7] folding - Predicting: |          | 0/? [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/50 [00:00<?, ?it/s]   [Step 3/7] folding - Predicting DataLoader 0: :   0%|          | 0/50 [00:00<?, ?it/s]/usr/local/lib/python3.11/dist-packages/cuequivariance_ops_torch/triangle_attention.py:165: UserWarning: Non-SM100f kernel expects bias to be float32 so it's going to be cast to torch.float32. Check if you can change your code for maximum performance.
-  warnings.warn(
-/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_00.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :   2%|▏         | 1/50 [00:13<11:12,  0.07it/s]/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
-  return data.pin_memory(device)
-/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
-  return data.pin_memory(device)
-/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_01.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :   4%|▍         | 2/50 [00:25<10:01,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_02.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :   6%|▌         | 3/50 [00:36<09:29,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_03.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :   8%|▊         | 4/50 [00:47<09:11,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_04.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  10%|█         | 5/50 [00:59<08:53,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_05.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  12%|█▏        | 6/50 [01:10<08:36,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_06.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  14%|█▍        | 7/50 [01:21<08:22,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_07.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  16%|█▌        | 8/50 [01:33<08:08,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_08.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  18%|█▊        | 9/50 [01:44<07:55,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_09.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  20%|██        | 10/50 [01:55<07:42,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_10.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  22%|██▏       | 11/50 [02:06<07:30,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_11.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  24%|██▍       | 12/50 [02:18<07:17,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_12.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  26%|██▌       | 13/50 [02:29<07:05,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_13.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  28%|██▊       | 14/50 [02:40<06:53,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_14.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  30%|███       | 15/50 [02:52<06:41,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_15.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  32%|███▏      | 16/50 [03:03<06:29,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_16.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  34%|███▍      | 17/50 [03:14<06:17,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_17.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  36%|███▌      | 18/50 [03:25<06:06,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_18.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  38%|███▊      | 19/50 [03:37<05:54,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_19.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  40%|████      | 20/50 [03:48<05:43,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_20.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  42%|████▏     | 21/50 [04:00<05:31,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_21.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  44%|████▍     | 22/50 [04:11<05:19,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_22.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  46%|████▌     | 23/50 [04:22<05:08,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_23.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  48%|████▊     | 24/50 [04:33<04:56,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_24.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  50%|█████     | 25/50 [04:45<04:45,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_25.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  52%|█████▏    | 26/50 [04:56<04:33,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_26.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  54%|█████▍    | 27/50 [05:07<04:22,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_27.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  56%|█████▌    | 28/50 [05:18<04:10,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_28.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  58%|█████▊    | 29/50 [05:30<03:59,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_29.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  60%|██████    | 30/50 [05:41<03:47,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_30.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  62%|██████▏   | 31/50 [05:52<03:36,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_31.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  64%|██████▍   | 32/50 [06:04<03:24,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_32.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  66%|██████▌   | 33/50 [06:15<03:13,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_33.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  68%|██████▊   | 34/50 [06:26<03:02,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_34.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  70%|███████   | 35/50 [06:38<02:50,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_35.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  72%|███████▏  | 36/50 [06:49<02:39,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_36.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  74%|███████▍  | 37/50 [07:00<02:27,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_37.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  76%|███████▌  | 38/50 [07:12<02:16,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_38.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  78%|███████▊  | 39/50 [07:23<02:05,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_39.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  80%|████████  | 40/50 [07:34<01:53,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_40.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  82%|████████▏ | 41/50 [07:45<01:42,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_41.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  84%|████████▍ | 42/50 [07:57<01:30,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_42.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  86%|████████▌ | 43/50 [08:08<01:19,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_43.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  88%|████████▊ | 44/50 [08:19<01:08,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_44.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  90%|█████████ | 45/50 [08:31<00:56,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_45.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  92%|█████████▏| 46/50 [08:42<00:45,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_46.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  94%|█████████▍| 47/50 [08:53<00:34,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_47.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  96%|█████████▌| 48/50 [09:05<00:22,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_48.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: :  98%|█████████▊| 49/50 [09:16<00:11,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_cif/proline1_49.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 3/7] folding - Predicting DataLoader 0: : 100%|██████████| 50/50 [09:28<00:00,  0.09it/s]Number of failed structure predictions: 0
-[Step 3/7] folding - Predicting DataLoader 0: : 100%|██████████| 50/50 [09:28<00:00,  0.09it/s]
-✓ Step folding completed successfully in 598.4s
-**************************************************
-Pipeline step 4 of 7: design_folding
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/design_folding.yaml
-Initializing FromGeneratedDataModule datasets for /workdir/proline1/intermediate_designs_inverse_folded
-[Info] Number of files to process (including already processed ones): 50
-Found 1 targets and 50 remaining designs that still need to be processed in this step.
-/usr/local/lib/python3.11/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: |          | 0/? [00:00<?, ?it/s][Step 4/7] design_folding - Predicting: |          | 0/? [00:00<?, ?it/s][Step 4/7] design_folding - Predicting: |          | 0/? [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/50 [00:00<?, ?it/s]          [Step 4/7] design_folding - Predicting DataLoader 0: :   0%|          | 0/50 [00:00<?, ?it/s]/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
-  return data.pin_memory(device)
-/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
-  return data.pin_memory(device)
-/usr/local/lib/python3.11/dist-packages/cuequivariance_ops_torch/triangle_attention.py:165: UserWarning: Non-SM100f kernel expects bias to be float32 so it's going to be cast to torch.float32. Check if you can change your code for maximum performance.
-  warnings.warn(
-/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_00.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :   2%|▏         | 1/50 [00:13<10:56,  0.07it/s]/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
-  return data.pin_memory(device)
-/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
-  return data.pin_memory(device)
-/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_01.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :   4%|▍         | 2/50 [00:24<09:46,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_02.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :   6%|▌         | 3/50 [00:35<09:16,  0.08it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_03.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :   8%|▊         | 4/50 [00:46<08:59,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_04.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  10%|█         | 5/50 [00:58<08:42,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_05.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  12%|█▏        | 6/50 [01:09<08:27,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_06.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  14%|█▍        | 7/50 [01:20<08:12,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_07.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  16%|█▌        | 8/50 [01:31<07:59,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_08.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  18%|█▊        | 9/50 [01:42<07:46,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_09.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  20%|██        | 10/50 [01:53<07:34,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_10.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  22%|██▏       | 11/50 [02:04<07:22,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_11.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  24%|██▍       | 12/50 [02:15<07:10,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_12.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  26%|██▌       | 13/50 [02:27<06:58,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_13.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  28%|██▊       | 14/50 [02:38<06:46,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_14.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  30%|███       | 15/50 [02:49<06:35,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_15.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  32%|███▏      | 16/50 [03:00<06:23,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_16.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  34%|███▍      | 17/50 [03:11<06:12,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_17.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  36%|███▌      | 18/50 [03:22<06:00,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_18.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  38%|███▊      | 19/50 [03:34<05:49,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_19.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  40%|████      | 20/50 [03:45<05:38,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_20.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  42%|████▏     | 21/50 [03:56<05:26,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_21.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  44%|████▍     | 22/50 [04:07<05:15,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_22.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  46%|████▌     | 23/50 [04:18<05:03,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_23.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  48%|████▊     | 24/50 [04:30<04:52,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_24.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  50%|█████     | 25/50 [04:41<04:41,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_25.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  52%|█████▏    | 26/50 [04:52<04:29,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_26.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  54%|█████▍    | 27/50 [05:03<04:18,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_27.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  56%|█████▌    | 28/50 [05:14<04:07,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_28.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  58%|█████▊    | 29/50 [05:25<03:55,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_29.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  60%|██████    | 30/50 [05:36<03:44,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_30.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  62%|██████▏   | 31/50 [05:47<03:33,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_31.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  64%|██████▍   | 32/50 [05:59<03:21,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_32.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  66%|██████▌   | 33/50 [06:10<03:10,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_33.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  68%|██████▊   | 34/50 [06:21<02:59,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_34.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  70%|███████   | 35/50 [06:32<02:48,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_35.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  72%|███████▏  | 36/50 [06:43<02:36,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_36.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  74%|███████▍  | 37/50 [06:54<02:25,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_37.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  76%|███████▌  | 38/50 [07:05<02:14,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_38.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  78%|███████▊  | 39/50 [07:17<02:03,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_39.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  80%|████████  | 40/50 [07:28<01:52,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_40.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  82%|████████▏ | 41/50 [07:39<01:40,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_41.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  84%|████████▍ | 42/50 [07:50<01:29,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_42.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  86%|████████▌ | 43/50 [08:01<01:18,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_43.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  88%|████████▊ | 44/50 [08:12<01:07,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_44.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  90%|█████████ | 45/50 [08:23<00:55,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_45.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  92%|█████████▏| 46/50 [08:34<00:44,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_46.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  94%|█████████▍| 47/50 [08:46<00:33,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_47.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  96%|█████████▌| 48/50 [08:57<00:22,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_48.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: :  98%|█████████▊| 49/50 [09:08<00:11,  0.09it/s]/app/src/boltzgen/task/predict/writer.py:92: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workdir/proline1/intermediate_designs_inverse_folded/refold_design_cif/proline1_49.cif' mode='w' encoding='UTF-8'>
-  open(self.refold_cif_dir / f"{batch['id'][0]}.cif", "w").write(cif_text)
-[Step 4/7] design_folding - Predicting DataLoader 0: : 100%|██████████| 50/50 [09:19<00:00,  0.09it/s]Number of failed structure predictions: 0
-[Step 4/7] design_folding - Predicting DataLoader 0: : 100%|██████████| 50/50 [09:19<00:00,  0.09it/s]
-✓ Step design_folding completed successfully in 586.8s
-**************************************************
-Pipeline step 5 of 7: affinity
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/affinity.yaml
-Initializing FromGeneratedDataModule datasets for /workdir/proline1/intermediate_designs_inverse_folded
-[Info] Number of files to process (including already processed ones): 50
-Found 1 targets and 50 remaining designs that still need to be processed in this step.
-/usr/local/lib/python3.11/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: |          | 0/? [00:00<?, ?it/s][Step 5/7] affinity - Predicting: |          | 0/? [00:00<?, ?it/s][Step 5/7] affinity - Predicting: |          | 0/? [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/50 [00:00<?, ?it/s]    [Step 5/7] affinity - Predicting DataLoader 0: :   0%|          | 0/50 [00:00<?, ?it/s]/usr/local/lib/python3.11/dist-packages/cuequivariance_ops_torch/triangle_attention.py:165: UserWarning: Non-SM100f kernel expects bias to be float32 so it's going to be cast to torch.float32. Check if you can change your code for maximum performance.
-  warnings.warn(
-/usr/local/lib/python3.11/dist-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
-  return fn(*args, **kwargs)
-/usr/local/lib/python3.11/dist-packages/torch/utils/checkpoint.py:232: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
-  check_backward_validity(args)
-/usr/local/lib/python3.11/dist-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
-  return fn(*args, **kwargs)
-/usr/local/lib/python3.11/dist-packages/torch/utils/checkpoint.py:232: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
-  check_backward_validity(args)
-[Step 5/7] affinity - Predicting DataLoader 0: :   2%|▏         | 1/50 [00:18<15:15,  0.05it/s]/usr/local/lib/python3.11/dist-packages/cuequivariance_ops_torch/triangle_attention.py:165: UserWarning: Non-SM100f kernel expects bias to be float32 so it's going to be cast to torch.float32. Check if you can change your code for maximum performance.
-  warnings.warn(
-/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
-  return data.pin_memory(device)
-/usr/local/lib/python3.11/dist-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
-  return data.pin_memory(device)
-[Step 5/7] affinity - Predicting DataLoader 0: :   4%|▍         | 2/50 [00:29<11:56,  0.07it/s][Step 5/7] affinity - Predicting DataLoader 0: :   6%|▌         | 3/50 [00:41<10:43,  0.07it/s][Step 5/7] affinity - Predicting DataLoader 0: :   8%|▊         | 4/50 [00:52<10:00,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  10%|█         | 5/50 [01:03<09:31,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  12%|█▏        | 6/50 [01:14<09:07,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  14%|█▍        | 7/50 [01:25<08:47,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  16%|█▌        | 8/50 [01:37<08:30,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  18%|█▊        | 9/50 [01:48<08:13,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  20%|██        | 10/50 [01:59<07:58,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  22%|██▏       | 11/50 [02:10<07:44,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  24%|██▍       | 12/50 [02:22<07:30,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  26%|██▌       | 13/50 [02:33<07:16,  0.08it/s][Step 5/7] affinity - Predicting DataLoader 0: :  28%|██▊       | 14/50 [02:44<07:03,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  30%|███       | 15/50 [02:55<06:50,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  32%|███▏      | 16/50 [03:07<06:37,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  34%|███▍      | 17/50 [03:18<06:24,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  36%|███▌      | 18/50 [03:29<06:12,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  38%|███▊      | 19/50 [03:40<06:00,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  40%|████      | 20/50 [03:52<05:48,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  42%|████▏     | 21/50 [04:03<05:35,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  44%|████▍     | 22/50 [04:14<05:23,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  46%|████▌     | 23/50 [04:25<05:11,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  48%|████▊     | 24/50 [04:37<05:00,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  50%|█████     | 25/50 [04:48<04:48,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  52%|█████▏    | 26/50 [04:59<04:36,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  54%|█████▍    | 27/50 [05:10<04:24,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  56%|█████▌    | 28/50 [05:21<04:12,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  58%|█████▊    | 29/50 [05:33<04:01,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  60%|██████    | 30/50 [05:44<03:49,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  62%|██████▏   | 31/50 [05:55<03:37,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  64%|██████▍   | 32/50 [06:06<03:26,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  66%|██████▌   | 33/50 [06:17<03:14,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  68%|██████▊   | 34/50 [06:29<03:03,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  70%|███████   | 35/50 [06:40<02:51,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  72%|███████▏  | 36/50 [06:51<02:40,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  74%|███████▍  | 37/50 [07:02<02:28,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  76%|███████▌  | 38/50 [07:14<02:17,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  78%|███████▊  | 39/50 [07:25<02:05,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  80%|████████  | 40/50 [07:36<01:54,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  82%|████████▏ | 41/50 [07:47<01:42,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  84%|████████▍ | 42/50 [07:58<01:31,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  86%|████████▌ | 43/50 [08:10<01:19,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  88%|████████▊ | 44/50 [08:21<01:08,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  90%|█████████ | 45/50 [08:32<00:56,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  92%|█████████▏| 46/50 [08:43<00:45,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  94%|█████████▍| 47/50 [08:55<00:34,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  96%|█████████▌| 48/50 [09:06<00:22,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: :  98%|█████████▊| 49/50 [09:17<00:11,  0.09it/s][Step 5/7] affinity - Predicting DataLoader 0: : 100%|██████████| 50/50 [09:28<00:00,  0.09it/s]Number of failed affinity predictions: 0
-[Step 5/7] affinity - Predicting DataLoader 0: : 100%|██████████| 50/50 [09:28<00:00,  0.09it/s]
-✓ Step affinity completed successfully in 596.7s
-**************************************************
-Pipeline step 6 of 7: analysis
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/analysis.yaml
-Initializing FromGeneratedDataModule datasets for /workdir/proline1/intermediate_designs_inverse_folded
-[Info] Number of files to process (including already processed ones): 50
-Found 1 targets and 50 remaining designs that still need to be processed in this step.
-Processing samples:   0%|          | 0/50 [00:00<?, ?it/s]Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Processing samples:   2%|▏         | 1/50 [01:12<58:50, 72.05s/it]Processing samples:   4%|▍         | 2/50 [01:13<24:11, 30.23s/it]Processing samples:   6%|▌         | 3/50 [01:13<12:57, 16.54s/it]Processing samples:  10%|█         | 5/50 [01:13<05:24,  7.21s/it]Processing samples:  14%|█▍        | 7/50 [01:13<02:52,  4.01s/it]Processing samples:  20%|██        | 10/50 [01:14<01:26,  2.16s/it]Processing samples:  22%|██▏       | 11/50 [01:14<01:10,  1.80s/it]Processing samples:  26%|██▌       | 13/50 [01:14<00:44,  1.19s/it]Processing samples:  30%|███       | 15/50 [01:14<00:29,  1.21it/s]Processing samples:  34%|███▍      | 17/50 [01:14<00:19,  1.68it/s]Processing samples:  38%|███▊      | 19/50 [01:15<00:13,  2.35it/s]Processing samples:  44%|████▍     | 22/50 [01:15<00:07,  3.70it/s]Processing samples:  48%|████▊     | 24/50 [01:15<00:06,  3.79it/s]Processing samples:  52%|█████▏    | 26/50 [01:16<00:07,  3.18it/s]Processing samples:  56%|█████▌    | 28/50 [01:16<00:06,  3.67it/s]Processing samples:  60%|██████    | 30/50 [01:17<00:04,  4.71it/s]Processing samples:  64%|██████▍   | 32/50 [01:18<00:06,  2.92it/s]Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: rmsd_design_target failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Warning: target_aligned_rmsd_design failed with error: linalg.svd: (Batch element 0): The algorithm failed to converge because the input matrix contained non-finite values.
-Processing samples:  66%|██████▌   | 33/50 [01:31<00:43,  2.56s/it]Processing samples:  68%|██████▊   | 34/50 [01:31<00:33,  2.10s/it]Processing samples:  72%|███████▏  | 36/50 [01:32<00:19,  1.42s/it]Processing samples:  76%|███████▌  | 38/50 [01:32<00:12,  1.00s/it]Processing samples:  82%|████████▏ | 41/50 [01:32<00:05,  1.65it/s]Processing samples:  84%|████████▍ | 42/50 [01:32<00:04,  1.92it/s]Processing samples:  88%|████████▊ | 44/50 [01:33<00:02,  2.47it/s]Processing samples:  92%|█████████▏| 46/50 [01:33<00:01,  3.40it/s]Processing samples: 100%|██████████| 50/50 [01:33<00:00,  5.94it/s]Processing samples: 100%|██████████| 50/50 [01:43<00:00,  2.07s/it]
-Computed metrics successfully for 50 out of 50.
-Loading saved metrics from disk. 1% of total:   0%|          | 0/50 [00:00<?, ?it/s]Loading saved metrics from disk. 1% of total:  20%|██        | 10/50 [00:00<00:00, 93.02it/s]Loading saved metrics from disk. 1% of total:  40%|████      | 20/50 [00:00<00:00, 95.46it/s]Loading saved metrics from disk. 1% of total:  60%|██████    | 30/50 [00:00<00:00, 96.40it/s]Loading saved metrics from disk. 1% of total:  80%|████████  | 40/50 [00:00<00:00, 96.85it/s]Loading saved metrics from disk. 1% of total: 100%|██████████| 50/50 [00:00<00:00, 97.23it/s]Loading saved metrics from disk. 1% of total: 100%|██████████| 50/50 [00:00<00:00, 96.59it/s]
-Number of targets: 1. Number of designs: 50.
-✓ Step analysis completed successfully in 111.1s
-**************************************************
-Pipeline step 7 of 7: filtering
-Running command: /usr/bin/python3.11 /app/src/boltzgen/resources/main.py /workdir/proline1/config/filtering.yaml
-Total number of designs:    50
-Duplicates found: 0. Removing duplicates. 50 designs remain.
-
-Num designs that pass the has_x filter with threshold 0 where lower is better: 50
-Remaining designs: 50
-Num designs that pass the filter_rmsd filter with threshold 2.5 where lower is better: 0
-Remaining designs: 0
-Num designs that pass the filter_rmsd_design filter with threshold 2.5 where lower is better: 0
-Remaining designs: 0
-Num designs that pass the designfolding-filter_rmsd filter with threshold 2.5 where lower is better: 0
-Remaining designs: 0
-Num designs that pass the ALA_fraction filter with threshold 0.3 where lower is better: 49
-Remaining designs: 0
-Num designs that pass the GLY_fraction filter with threshold 0.3 where lower is better: 16
-Remaining designs: 0
-Num designs that pass the GLU_fraction filter with threshold 0.3 where lower is better: 50
-Remaining designs: 0
-Num designs that pass the LEU_fraction filter with threshold 0.3 where lower is better: 50
-Remaining designs: 0
-Num designs that pass the VAL_fraction filter with threshold 0.3 where lower is better: 50
-Remaining designs: 0
-Only 0 designs pass filters. We highly recommend relaxing the thresholds.
-
-
-Performing lazy greedy diversity optimization.:   0%|          | 0/29 [00:00<?, ?it/s]Performing lazy greedy diversity optimization.: 100%|██████████| 29/29 [00:00<00:00, 8368.98it/s]
-copy top design files: 0it [00:00, ?it/s]copy top design files: 3it [00:00, 21.48it/s]copy top design files: 10it [00:00, 42.51it/s]
-copy diversity files:   0%|          | 0/30 [00:00<?, ?it/s]copy diversity files:  23%|██▎       | 7/30 [00:00<00:00, 48.92it/s]copy diversity files:  40%|████      | 12/30 [00:00<00:00, 31.15it/s]copy diversity files:  53%|█████▎    | 16/30 [00:00<00:00, 32.28it/s]copy diversity files:  73%|███████▎  | 22/30 [00:00<00:00, 39.86it/s]copy diversity files:  93%|█████████▎| 28/30 [00:00<00:00, 43.43it/s]copy diversity files: 100%|██████████| 30/30 [00:00<00:00, 40.09it/s]
-Files + CSV saved to /workdir/proline1/final_ranked_designs
-
-Writing design files is done. Now making plots for a final summary .pdf file with statistics.
-Making liability plots for top 0 sequences.: 0it [00:00, ?it/s]Making liability plots for top 0 sequences.: 0it [00:00, ?it/s]
-A description of metrics and summarizing plots was written to: /workdir/proline1/final_ranked_designs/results_overview.pdf
-✓ Step filtering completed successfully in 10.5s
-Welcome to PBP Designer! A pipeline for building new protein-based FRET biosensors.
-This pipeline is designed to be user-friendly and accessible to researchers of all levels of experience. All that is required from you is a SMILES code for you ligand of interest, and a name for your project.
-Smiles codes can be found from PubChem at: https://pubchem.ncbi.nlm.nih.gov/
-For more information on how to use the PBP Designer pipeline, please refer to our GitHub repository at: https://github.com/ExpertMirror/pbp-designer
-
-Beginning project 'proline1'.
-Checking SMILES code 'C1C[C@H](NC1)C(=O)O'...Success
-Scaffold protein assigned: livj
-Ligand similarity = 13.333333333333334 %
-Running: apptainer run --nv --bind /scratch/loganp29:/scratch/loganp29 -B /home/loganp29/project/pbp-designer/outs/boltzgen:/workdir -B /home/loganp29/project/pbp-designer/boltzgen:/example boltzgen.sif boltzgen run ./proline1.yaml --output /workdir/proline1 --protocol protein-small_molecule --num_designs 50 --budget 30
