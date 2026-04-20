@@ -1,3 +1,6 @@
 - biopython
 - ?Python >= 3.9?
 - numpy
+- dnachisel
+- rdkit
+
