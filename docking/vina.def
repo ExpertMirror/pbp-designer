@@ -1,0 +1,31 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author LoganP
+    Version v1.0-minimal
+    Description AutoDock Vina runtime only (no prep tools)
+
+%environment
+    export LC_ALL=C
+    export LANG=C
+    export OMP_NUM_THREADS=1
+
+%post
+    apt-get update && apt-get install -y \
+        wget \
+        ca-certificates \
+        build-essential \
+        libboost-all-dev \
+        && rm -rf /var/lib/apt/lists/*
+
+    # Install AutoDock Vina (prebuilt binary)
+    wget https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.5/vina_1.2.5_linux_x86_64
+    chmod +x vina_1.2.5_linux_x86_64
+    mv vina_1.2.5_linux_x86_64 /usr/local/bin/vina
+
+%runscript
+    exec vina "$@"
+
+%test
+    vina --help
