@@ -5,7 +5,7 @@ import subprocess as sp
 def write_seq(seq, name):
     base_dir = os.getcwd()
 
-    input_dir = os.path.join(base_dir, "structure", "inputs")
+    input_dir = os.path.join(base_dir, "structure", "inputs",)
     os.makedirs(input_dir, exist_ok=True)
 
     fasta_path = os.path.join(input_dir, f"{name}.fasta")
@@ -43,13 +43,13 @@ def activate_colabfold(name):
         image_path,
 
         "colabfold_batch",
-        "/input",
+        f"/input/{name}.fasta",
         "/output"
     ]
 
-    print("\n[INFO] Running ColabFold command:\n", " ".join(cmd), "\n")
+    print("Running: " + " ".join(cmd))
 
     result = sp.run(cmd, text=True)
 
     if result.returncode != 0:
-        raise RuntimeError("ColabFold failed — check logs above.")
+        raise RuntimeError("ColabFold failed — check logs for details.")
