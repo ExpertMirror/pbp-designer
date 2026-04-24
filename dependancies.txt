@@ -1,6 +1,12 @@
-- biopython
-- ?Python >= 3.9?
-- numpy
-- dnachisel
-- rdkit
-- certifi
+os
+rdkit
+subprocess
+unittest
+numpy
+biopython
+dnachisel
+certifi
+#converter.sif (def file present)
+#vina.sif (def file present)
+#boltzgen.sif (pull from DockerHub)
+#colabfold.sif (pull from DockerHub)
