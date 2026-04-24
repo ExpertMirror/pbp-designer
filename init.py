@@ -1,5 +1,6 @@
 from rdkit import Chem
 import sys
+import os
 
 def opening():
     message = """Welcome to PBP Designer! A pipeline for building new protein-based FRET biosensors.

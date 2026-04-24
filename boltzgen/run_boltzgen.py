@@ -1,9 +1,13 @@
 import os
 import subprocess as sp
+from unittest import result
 
 def write_yaml(scaffold, smiles, name):
-    os.chdir('../../boltzgen/specs')
-    with open(f'{scaffold}.yaml', 'r') as f:
+    base_dir = os.getcwd()
+    scaffold_path = os.path.join(base_dir, "boltzgen", "specs", f"{scaffold}.yaml")
+    yaml_out = os.path.join(base_dir, "boltzgen", f"{name}.yaml")
+
+    with open(scaffold_path, 'r') as f:
         lines = f.readlines()
 
 
@@ -11,18 +15,20 @@ def write_yaml(scaffold, smiles, name):
         if 'smiles:' in line:
             lines[i] = f'      smiles: "{smiles.strip()}"\n'
             break
-        
-    os.chdir('../')
-    with open(f'{name}.yaml', 'w') as f:
+
+    print(f"yaml_out: {yaml_out}")
+
+    with open(yaml_out, 'w') as f:
         f.writelines(lines)
 
 def activate_boltzgen(name):
     base_dir = os.getcwd()
-    out_dir = os.path.abspath(os.path.join(base_dir, "../outs/boltzgen", name))
-    workdir = os.path.abspath(os.path.join(base_dir, "../outs/boltzgen"))
-    example_dir = os.path.abspath(os.path.join(base_dir, "../boltzgen"))
 
-    os.makedirs(out_dir, exist_ok=True)
+    workdir = os.path.abspath(os.path.join(base_dir, "outs", "boltzgen"))
+    example_dir = os.path.abspath(os.path.join(base_dir, "boltzgen"))
+    sif_path = os.path.join(base_dir, "boltzgen", "boltzgen.sif")
+
+    os.makedirs(os.path.join(workdir, name), exist_ok=True)
 
     scratch = os.environ.get("SCRATCH")
     if scratch is None:
@@ -33,22 +39,16 @@ def activate_boltzgen(name):
         "--bind", f"{scratch}:{scratch}",
         "-B", f"{workdir}:/workdir",
         "-B", f"{example_dir}:/example",
-        "boltzgen.sif",
-        "boltzgen", "run", f"./{name}.yaml",
-        "--output", f"/workdir/{name}",   # important: use container path
+
+        sif_path,
+
+        "boltzgen", "run",
+        f"/example/{name}.yaml",                 # ✅ FIXED
+        "--output", f"/workdir/{name}",          # ✅ FIXED
         "--protocol", "protein-small_molecule",
         "--num_designs", "50",
         "--budget", "30"
     ]
 
-    print("Running:", " ".join(cmd))  # debug
+    print("Running:", " ".join(cmd))
     sp.run(cmd, check=True)
-
-
-"""
-apptainer run   --nv   --bind $SCRATCH:$SCRATCH   -B "../outs/boltzgen/workdir":/workdir   -B "$PWD":/example   boltzgen.sif     boltzgen check /example/mppa_idk/mi.yaml
-"""
-
-"""
-apptainer run   --nv   --bind $SCRATCH:$SCRATCH   -B "$PWD/workdir":/workdir   -B "$PWD/example":/example   boltzgen_weights.sif     boltzgen check /example/mppa_idk/mi.yaml
-"""

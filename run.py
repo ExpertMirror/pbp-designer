@@ -3,6 +3,23 @@ import sys
 import os
 from chemistry import compute_similarity as cs
 from boltzgen import run_boltzgen as rb
+from sequence import get_seq as seq
+from structure import run_colabfold as fold
+from docking import dock
+from dna import optimize_dna as dna
+
+
+"""
+#debugging
+def main():
+    if len(sys.argv) < 3:
+        print("Usage: python script.py <SMILES> <project_name>", flush=True)
+        sys.exit(1)
+    project_name=sys.argv[2]
+    ligand_smiles = sys.argv[1]
+    init_seq = seq.extract_seq(project_name)
+
+"""
 
 
 def main():
@@ -20,7 +37,20 @@ def main():
     scaffold = cs.find_scaffold(names,scores)
     rb.write_yaml(scaffold, ligand_smiles, project_name)
     rb.activate_boltzgen(project_name)
-
+    init_seq = seq.extract_seq(project_name)
+    fold.write_seq(init_seq, project_name)
+    fold.activate_colabfold(project_name)
+    dock.get_pdb(project_name)
+    dock.convert_ligand(ligand_smiles, project_name)
+    dock.convert_protein(project_name)
+    base_dir = os.getcwd()
+    dock.fix_receptor_pdbqt(os.path.join(base_dir, "docking", "prep", f"{project_name}_protein_prepared.pdbqt"))
+    center, size = dock.compute_protein_grid_box(project_name)
+    dock.write_config(project_name, center, size)
+    dock.run_vina(project_name)
+    aa_seq = dna.append_fret_proteins(project_name, init_seq)
+    dna_seq = dna.optimized_ecoli_dna(aa_seq)
+    print(f"Final optimized DNA sequence:\n{dna_seq}")
 
 if __name__=="__main__":
     main()

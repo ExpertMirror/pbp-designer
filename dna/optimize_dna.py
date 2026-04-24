@@ -2,18 +2,13 @@ import os
 from dnachisel import DnaOptimizationProblem
 from dnachisel.biotools import reverse_translate
 
-def append_fret_proteins(name):
+def append_fret_proteins(name, sequence):
+    binder_seq = sequence
     base_dir = os.getcwd()
-    binder_dir = os.path.join(base_dir, f"{name}.fasta")
-    fret_dir = os.path.join(base_dir, "fret_seqs")
+    fret_dir = os.path.join(base_dir, "dna", "fret_seqs")
 
     cfp_path = os.path.join(fret_dir, "cfp.fasta")
     yfp_path = os.path.join(fret_dir, "yfp.fasta")
-
-    with open(binder_dir, 'r') as f:
-        binder_content = f.read()
-    
-    binder_seq = binder_content.splitlines()[0]  # Get the sequence line
 
     with open(cfp_path, 'r') as f:
         cfp_content = f.read()
@@ -40,11 +35,3 @@ def optimized_ecoli_dna(protein_seq):
     optimized_dna = problem.sequence
     print(f"Optimized DNA sequence:\n{optimized_dna}")
     print(f"Checking sequence is in-frame: {len(optimized_dna) % 3 == 0}")
-
-
-def main():
-    fret_protein = append_fret_proteins("hisj_pro")
-    optimized_ecoli_dna(fret_protein)
-
-if __name__ == "__main__":
-    main()

@@ -28,8 +28,8 @@ def compute_tanimoto(smiles1, smiles2):
 
 def find_library():
     names = []
-    os.chdir('./chemistry/ligand_lib')
-    for file in os.listdir():
+    ligand_dir = os.path.join(os.getcwd(), "chemistry", "ligand_lib")
+    for file in os.listdir(ligand_dir):
         if file.endswith(".txt"):
             name = os.path.splitext(file)[0]
             names.append(name)
@@ -37,9 +37,10 @@ def find_library():
 
 def build_library(names):
     codes = []
+    ligand_dir = os.path.join(os.getcwd(), "chemistry", "ligand_lib")
 
     for name in names:
-        with open(f"{name}.txt", "r") as f:
+        with open(os.path.join(ligand_dir, f"{name}.txt"), "r") as f:
             lines = [line.strip() for line in f if line.strip()]
 
             if len(lines) == 1:
