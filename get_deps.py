@@ -1,10 +1,12 @@
 import os
 import subprocess as sp
 
+# **Ensure user loads python/3.14.X and apptainer modules before running this script.**
+
 def get_packages():
     print("Updating pip...")
     sp.run(['pip', 'install', '--upgrade', 'pip'])
-    with open('requirements.txt') as f:
+    with open('dependancies.txt', 'r') as f:
         deps = [line.strip() for line in f if line.strip() and not line.startswith('#')]
         for dep in deps:
             print(f"Installing {dep}...")
@@ -13,7 +15,6 @@ def get_packages():
     return
 
 def pull_sifs():
-    sp.run(['module', 'load', 'apptainer'])
     base_dir = os.getcwd()
     dock_dir = os.path.join(base_dir, 'docking')
     os.chdir(dock_dir)
