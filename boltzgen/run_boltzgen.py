@@ -35,7 +35,6 @@ def activate_boltzgen(name):
     if scratch is None:
         raise RuntimeError("SCRATCH not set")
     
-    print("Running:", " ".join(cmd))
 
     cmd = [
         "apptainer", "run", "--nv",
@@ -52,5 +51,7 @@ def activate_boltzgen(name):
         "--num_designs", "50",
         "--budget", "30"
     ]
+
+    print("Running:", " ".join(cmd))
 
     sp.run(cmd, check=True)
