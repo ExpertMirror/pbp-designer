@@ -34,4 +34,10 @@ def optimized_ecoli_dna(protein_seq):
     problem.optimize()
     optimized_dna = problem.sequence
     print(f"Optimized DNA sequence:\n{optimized_dna}")
-    print(f"Checking sequence is in-frame: {len(optimized_dna) % 3 == 0}")
+    in_frame = len(optimized_dna) % 3 == 0
+    print(f"Checking sequence is in-frame: {in_frame}")
+    if not in_frame:
+        raise ValueError("Optimized DNA sequence is not in-frame.")
+
+
+    return optimized_dna

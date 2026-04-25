@@ -82,9 +82,11 @@ def convert_protein(name):
     if not os.path.exists(pdbqt_path):
         raise RuntimeError("PDBQT conversion failed: file not created")
 
-def fix_receptor_pdbqt(filepath):
+def fix_receptor_pdbqt(name):
     remove = {"ROOT", "ENDROOT", "BRANCH", "ENDBRANCH", "TORSDOF"}
 
+    base_dir = os.getcwd()
+    filepath = os.path.join(base_dir, "docking", "prep", f"{name}_protein_prepared.pdbqt")
     with open(filepath) as f:
         lines = f.readlines()
 
@@ -151,7 +153,8 @@ def run_vina(name):
     base_dir = os.getcwd()
     config_path = os.path.join(base_dir, "docking", "prep", f"{name}_config.txt")
     output_path = os.path.join(base_dir, "docking", "prep", f"{name}_vina_out.pdbqt")
-    log_path = os.path.join(base_dir, "docking", "prep", f"{name}_vina.log")
+    os.makedirs(os.path.join(base_dir, "outs", "vina", name), exist_ok=True)
+    log_path = os.path.join(base_dir, "outs", "vina", name, f"{name}_vina.log")
     vina_sif = os.path.join(base_dir, "docking", "vina.sif")
     prep_dir = os.path.join(base_dir, "docking", "prep")
     cmd = [

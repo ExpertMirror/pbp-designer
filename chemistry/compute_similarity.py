@@ -81,6 +81,29 @@ def find_scaffold(names, scores):
                 if score > max:
                     max = score
                     id = scores.index(entry)
+
+
     scaffold = names[id]
     print(f"Scaffold protein assigned: {scaffold}\nLigand similarity = {max * 100} %")
     return scaffold
+
+def check_smiles_type(smiles):
+    ORGANIC_ATOMIC_NUMS = {1, 6, 7, 8, 9, 15, 16, 17, 35, 53}  # H, C, N, O, F, P, S, Cl, Br, I
+
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        raise ValueError(f"Invalid SMILES: {smiles}")
+    
+    mol = Chem.AddHs(mol)  # Add explicit hydrogens
+
+    n_atoms = mol.GetNumAtoms()
+    total_charge = Chem.GetFormalCharge(mol)
+
+    if total_charge != 0:
+        print(f"User input is an ion: {smiles}")
+        return "ion"
+    if n_atoms == 1:
+        print(f"User input is an atom: {smiles}")
+        raise ValueError("Uncharged, single atoms are not supported. PBPs cannot bind single atoms. Please provide a valid molecule.")
+    print (f"User input is a compound: {smiles}")
+    return "compound"

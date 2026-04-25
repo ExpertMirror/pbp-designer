@@ -4,9 +4,7 @@ from Bio.SeqUtils import seq1
 
 def extract_seq(name):
     base_dir = os.getcwd()
-    print(f"base_dir: {base_dir}")
     boltz_out = os.path.join(base_dir, "outs", "boltzgen", name, "final_ranked_designs", "final_30_designs")
-    print(f"boltz_out: {boltz_out}")
 
     cifs = [f for f in os.listdir(boltz_out) if os.path.isfile(os.path.join(boltz_out, f))]
     for cif in cifs:
@@ -15,7 +13,7 @@ def extract_seq(name):
                 top_res=cif
         except Exception as e:
             print(f"Error processing file {cif}: {e}")
-    print(f"Top ranked design: {top_res}")
+    print(f"Top ranked BoltzGen design: {top_res}")
 
     parser = MMCIFParser()
     cif_path = os.path.join(boltz_out, top_res)
@@ -23,7 +21,7 @@ def extract_seq(name):
 
     for model in structure:
         if 'A' not in model:
-            raise ValueError("Chain A not found")
+            raise ValueError("Chain A not found. BoltzGen protein design may have failed. Please check the BoltzGen output for errors.")
 
         chain = model['A']
 

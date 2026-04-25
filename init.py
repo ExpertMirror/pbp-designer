@@ -4,9 +4,11 @@ import os
 
 def opening():
     message = """Welcome to PBP Designer! A pipeline for building new protein-based FRET biosensors.
-This pipeline is designed to be user-friendly and accessible to researchers of all levels of experience. All that is required from you is a SMILES code for you ligand of interest, and a name for your project.
+This pipeline is designed to be user-friendly and accessible to researchers of all levels of experience. 
+All that is required from you is a SMILES code for you ligand of interest, and a name for your project.
 Smiles codes can be found from PubChem at: https://pubchem.ncbi.nlm.nih.gov/
-For more information on how to use the PBP Designer pipeline, please refer to our GitHub repository at: https://github.com/ExpertMirror/pbp-designer
+For instructions and information on how to use the PBP Designer pipeline, please refer to our 
+GitHub repository at: https://github.com/ExpertMirror/pbp-designer
 """
     print(message)
 

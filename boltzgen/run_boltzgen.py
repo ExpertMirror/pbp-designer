@@ -5,7 +5,8 @@ from unittest import result
 def write_yaml(scaffold, smiles, name):
     base_dir = os.getcwd()
     scaffold_path = os.path.join(base_dir, "boltzgen", "specs", f"{scaffold}.yaml")
-    yaml_out = os.path.join(base_dir, "boltzgen", f"{name}.yaml")
+    os.makedirs(os.path.join(base_dir, "outs", "boltzgen", "yamls"), exist_ok=True)
+    yaml_out = os.path.join(base_dir, "outs", "boltzgen", "yamls", f"{name}.yaml")
 
     with open(scaffold_path, 'r') as f:
         lines = f.readlines()
@@ -25,7 +26,7 @@ def activate_boltzgen(name):
     base_dir = os.getcwd()
 
     workdir = os.path.abspath(os.path.join(base_dir, "outs", "boltzgen"))
-    example_dir = os.path.abspath(os.path.join(base_dir, "boltzgen"))
+    example_dir = os.path.abspath(os.path.join(base_dir, "outs", "boltzgen", "yamls"))
     sif_path = os.path.join(base_dir, "boltzgen", "boltzgen.sif")
 
     os.makedirs(os.path.join(workdir, name), exist_ok=True)
@@ -33,6 +34,8 @@ def activate_boltzgen(name):
     scratch = os.environ.get("SCRATCH")
     if scratch is None:
         raise RuntimeError("SCRATCH not set")
+    
+    print("Running:", " ".join(cmd))
 
     cmd = [
         "apptainer", "run", "--nv",
@@ -50,5 +53,4 @@ def activate_boltzgen(name):
         "--budget", "30"
     ]
 
-    print("Running:", " ".join(cmd))
     sp.run(cmd, check=True)
