@@ -24,7 +24,7 @@ def main():
     codes = cs.build_library(names)
     scores = cs.compute_scores(codes, ligand_smiles)
     if cs.check_smiles_type(ligand_smiles) == "ion":
-        scaffold = "moda"
+        scaffold = "psts"
         rb.write_yaml(scaffold, ligand_smiles, project_name)
         rb.activate_boltzgen(project_name)
         init_seq = seq.extract_seq(project_name)
