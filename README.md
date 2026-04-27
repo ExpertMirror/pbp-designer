@@ -1,6 +1,6 @@
 # pbp-designer
 A pipeline for automated engineering of biosensors for small molecule ligands. PBP designer uses BoltzGen to create a periplasmic binding protein, which is then turned into a FRET molecule, and finally codon optimized for E. coli expression.
-The pipeline required the usage of a High Performance Computing cluster, with the apptainer module installed. Many clusters come with apptainer per-installed, but you can go to https://github.com/apptainer/apptainer.git to install the software.
+The pipeline requires the usage of a High Performance Computing cluster, with the apptainer module installed. Many clusters come with apptainer per-installed, but you can go to https://github.com/apptainer/apptainer.git to install the software.
 
 #How to start
 Begin by cloning the repository: ```git clone https://github.com/ExpertMirror/pbp-designer.git```
