@@ -7,7 +7,7 @@ biopython
 dnachisel
 certify
 json
-#converter.sif (def file present)
-#vina.sif (def file present)
-#boltzgen.sif (pull from DockerHub)
-#colabfold.sif (pull from DockerHub)
+#converter.sif (def file present in /docking)
+#vina.sif (def file present in /docking)
+#boltzgen.sif (pull from DockerHub via: apptainer pull boltzgen.sif docker://fastfold/boltzgen:v0.2.0)
+#colabfold.sif (pull from DockerHub via: apptainer pull colabfold.sif docker://ghcr.io/sokrypton/colabfold:1.5.5-cuda12.2.2)
